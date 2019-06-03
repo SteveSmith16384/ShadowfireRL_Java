@@ -18,5 +18,7 @@ public abstract class AbstractSystem {
 	}
 	
 	
-	public abstract void processEntity(AbstractEntity entity);
+	public void processEntity(AbstractEntity entity) {
+		// Override if required
+	}
 }
