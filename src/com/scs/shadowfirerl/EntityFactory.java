@@ -4,6 +4,7 @@ import com.googlecode.lanterna.TextColor;
 import com.scs.ecs.BasicEcs;
 import com.scs.ecs.entities.AbstractEntity;
 import com.scs.shadowfirerl.components.GraphicComponent;
+import com.scs.shadowfirerl.components.MovementDataComponent;
 import com.scs.shadowfirerl.components.PositionComponent;
 import com.scs.shadowfirerl.models.MapData;
 
@@ -30,6 +31,7 @@ public class EntityFactory {
 	public AbstractEntity createPlayersUnit(int x, int y) {
 		AbstractEntity e = new AbstractEntity();
 		e.addComponent(new PositionComponent(e, map_data, x, y));
+		e.addComponent(new MovementDataComponent());
 		e.addComponent(new GraphicComponent('1', TextColor.ANSI.GREEN, TextColor.ANSI.BLACK));
 		ecs.entities.add(e);
 		return e;

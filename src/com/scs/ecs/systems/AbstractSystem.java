@@ -7,7 +7,6 @@ import com.scs.ecs.entities.AbstractEntity;
 public abstract class AbstractSystem {
 
 	public AbstractSystem() {
-		// TODO Auto-generated constructor stub
 	}
 
 	
