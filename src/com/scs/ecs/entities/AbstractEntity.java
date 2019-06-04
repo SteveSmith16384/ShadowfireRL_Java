@@ -8,11 +8,13 @@ public class AbstractEntity {
 
 	private static int next_id = 0;
 	
-	public int id;
+	public final int id;
+	public final String name;
 	public HashMap<String, AbstractComponent> components = new HashMap<>();
 	
-	public AbstractEntity() {
+	public AbstractEntity(String _name) {
 		id = next_id++;
+		name = _name;
 	}
 
 	

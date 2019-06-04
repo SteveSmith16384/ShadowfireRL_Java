@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.scs.ecs.entities.AbstractEntity;
 import com.scs.shadowfirerl.EntityFactory;
+import com.scs.shadowfirerl.Main;
 
 public class MapData {
 
@@ -12,8 +13,8 @@ public class MapData {
 
 	public MapData() {
 	}
-	
-	
+
+
 	public void createMap(EntityFactory factory) {
 		int w = 50;
 		int h = 50;
@@ -21,7 +22,11 @@ public class MapData {
 		for (int y=0 ; y<getHeight() ; y++) {
 			for (int x=0 ; x<getWidth() ; x++) {
 				map[x][y] = new ArrayList<>();
-				factory.createMapSquare(x, y);
+				if (Main.RND.nextFloat() > .1f) {
+					factory.createFloorMapSquare(x, y);
+				} else {
+					factory.createWallMapSquare(x, y);
+				}
 			}			
 		}
 	}

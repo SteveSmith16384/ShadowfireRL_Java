@@ -7,6 +7,7 @@ import com.scs.ecs.components.AbstractComponent;
 public class GraphicComponent extends AbstractComponent {
 
 	private TextCharacter ch;
+	public boolean is_visible = true;
 	
 	public GraphicComponent(char _ch, TextColor.ANSI foreground, TextColor.ANSI background) {
 		ch = new TextCharacter(_ch, foreground, background);

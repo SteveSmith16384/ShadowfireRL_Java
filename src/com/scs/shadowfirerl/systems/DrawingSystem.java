@@ -9,7 +9,7 @@ import com.scs.rogueframework.IGameView;
 import com.scs.shadowfirerl.components.GraphicComponent;
 import com.scs.shadowfirerl.models.MapData;
 
-public class DrawingSystem extends AbstractSystem {
+public class DrawingSystem {//extends AbstractSystem {
 
 	private IGameView view;
 	private MapData map_data;
@@ -20,15 +20,16 @@ public class DrawingSystem extends AbstractSystem {
 	}
 
 
-	@Override
-	public void process(List<AbstractEntity> entities) {
+	public void process() {
 		// Draw map
 		for (int y=0 ; y<map_data.getHeight() ; y++) {
 			for (int x=0 ; x<map_data.getWidth() ; x++) {
 				for (AbstractEntity sq : map_data.map[x][y]) {
 					GraphicComponent gc = (GraphicComponent)sq.getComponent(GraphicComponent.class.getSimpleName());
-					TextCharacter tc = gc.getChar();
-					view.drawCharacter(x, y, tc);
+					if (gc.is_visible) {
+						TextCharacter tc = gc.getChar();
+						view.drawCharacter(x, y, tc);
+					}
 				}
 			}			
 		}
